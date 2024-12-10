@@ -21,7 +21,11 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                // Jangan arahkan ke home jika route yang diminta adalah 'login.index'
+                if ($request->is('logout')) {
+                    return $next($request); // Biar tetap di halaman login atau logout
+                }
+                return redirect(RouteServiceProvider::HOME); // Arahkan ke home jika sudah login
             }
         }
 

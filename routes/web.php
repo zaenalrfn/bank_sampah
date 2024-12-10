@@ -18,23 +18,32 @@ use App\Http\Controllers\UserController;
 */
 
 // Route untuk form register dan login
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::middleware('guest')->group(function () {
+    Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
 
-Route::resource('users', UserController::class);
-Route::get('users/{user}/edit-password', [UserController::class, 'editPassword'])->name('users.edit-password');
-Route::put('users/{user}/update-password', [UserController::class, 'updatePassword'])->name('users.update-password');
-Route::get('/home', [HomeController::class, 'home'])->name('home');
-Route::resource('article', ArticlesController::class);
-Route::resource('waste-submission', WasteSubmissionController::class)->names([
-    'index' => 'waste-submission.index',
-    'create' => 'waste-submission.setor',
-    'store' => 'waste-submission.store',
-    'show' => 'waste-submission.show',
-    'edit' => 'waste-submission.edit',
-    'update' => 'waste-submission.update',
-    'destroy' => 'waste-submission.destroy',
-]);
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::middleware('role:user|admin')->group(function () {
+        Route::resource('users', UserController::class);
+        Route::get('users/{user}/edit-password', [UserController::class, 'editPassword'])->name('users.edit-password');
+        Route::put('users/{user}/update-password', [UserController::class, 'updatePassword'])->name('users.update-password');
+        Route::get('/home', [HomeController::class, 'home'])->name('home');
+    });
+
+    Route::middleware('role:admin')->group(function () {
+        Route::put('waste-submission/{waste_submission}', [WasteSubmissionController::class, 'update'])->name('waste-submission.update');
+        Route::get('waste-submission', [WasteSubmissionController::class, 'index'])->name('waste-submission.index');
+        Route::delete('waste-submission/{waste_submission}', [WasteSubmissionController::class, 'destroy'])->name('waste-submission.destroy');
+        Route::resource('article', ArticlesController::class);
+    });
+    Route::middleware('role:user')->group(function () {
+        Route::get('waste-submission/create', [WasteSubmissionController::class, 'create'])->name('waste-submission.setor');
+        Route::post('waste-submission', [WasteSubmissionController::class, 'store'])->name('waste-submission.store');
+    });
+});

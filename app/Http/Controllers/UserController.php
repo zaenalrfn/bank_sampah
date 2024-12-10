@@ -20,7 +20,7 @@ class UserController extends Controller
     {
         // Mendapatkan data pengguna yang sedang login
         $user = Auth::user();
-        return view('users.edit_user', compact('user'));
+        return view('edit_profil', compact('user'));
     }
 
     // Menyimpan perubahan data pengguna

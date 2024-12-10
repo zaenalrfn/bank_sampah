@@ -12,6 +12,7 @@
                     class="form-control" required>
             </div>
             <button type="submit" class="btn btn-primary mt-3">edit</button>
+            <h1>tambah admin pengguna</h1>
         </form>
     </div>
 </x-layout>
