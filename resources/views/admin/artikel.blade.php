@@ -106,7 +106,7 @@
         </tbody>
     </table>
     <!-- Pagination Links -->
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-end">
         {{ $articles->links('pagination::bootstrap-5') }}
     </div>
     </div>

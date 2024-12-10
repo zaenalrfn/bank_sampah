@@ -12,7 +12,7 @@
              <a class="nav-link" href="{{ route('waste-submission.index') }}">♻️ Setoran Sampah</a>
          </li>
          <li class="nav-item">
-             <a class="nav-link" href="#">👤 Kelola Pengguna</a>
+             <a class="nav-link" href="{{ route('users.index') }}">👤 Pengguna</a>
          </li>
          <li class="nav-item">
              <a class="nav-link" href="{{ route('waste-submission.setor') }}">📤 Setor</a>

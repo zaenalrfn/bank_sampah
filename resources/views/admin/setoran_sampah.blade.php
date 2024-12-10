@@ -33,7 +33,8 @@
                     <td>{{ ucfirst($submission->status) }}</td>
                     <td>
                         <!-- Tombol untuk buka modal -->
-                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#statusModal">Update
+                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#statusModal{{ $submission->id }}">Update
                             Status</button>
 
                         <!-- Tombol Hapus -->
@@ -47,8 +48,8 @@
                 </tr>
                 <!-- Modal untuk Update Status -->
                 @if (isset($submission))
-                    <div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="statusModalLabel"
-                        aria-hidden="true">
+                    <div class="modal fade" id="statusModal{{ $submission->id }}" tabindex="-1"
+                        aria-labelledby="statusModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <form action="{{ route('waste-submission.update', $submission->id) }}" method="POST">
                                 @csrf
@@ -85,8 +86,10 @@
             @endforeach
         </tbody>
     </table>
-
-    {{ $wasteSubmissions->links() }} <!-- Pagination -->
+    <!-- Pagination Links -->
+    <div class="d-flex justify-content-end">
+        {{ $wasteSubmissions->links('pagination::bootstrap-5') }}
+    </div>
     </div>
 
 
