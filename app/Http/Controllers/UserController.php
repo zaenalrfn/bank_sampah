@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -15,11 +16,11 @@ class UserController extends Controller
         $users = User::paginate(5);
         return view('admin.kelola_pengguna', compact('users'));
     }
-
-    // Menampilkan halaman untuk edit data pengguna
-    public function edit(User $user)
+    public function create()
     {
-        return view('admin.users.edit', compact('user'));
+        // Mendapatkan data pengguna yang sedang login
+        $user = Auth::user();
+        return view('users.edit_user', compact('user'));
     }
 
     // Menyimpan perubahan data pengguna
@@ -27,22 +28,13 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
         ]);
 
         $user->update([
             'name' => $request->name,
-            'email' => $request->email,
         ]);
 
-        return redirect()->route('users.index')->with('success', 'User updated successfully.');
-    }
-
-    // Menghapus pengguna
-    public function destroy(User $user)
-    {
-        $user->delete();
-        return redirect()->route('users.index')->with('success', 'User deleted successfully.');
+        return redirect()->route('users.create')->with('success', 'User updated successfully.');
     }
 
     // Menampilkan modal ganti password

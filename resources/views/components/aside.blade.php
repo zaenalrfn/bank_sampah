@@ -21,4 +21,9 @@
              <a class="nav-link" href="#">📜 Riwayat Setoran</a>
          </li>
      </ul>
+     <ul class="nav flex-column">
+         <li class="nav-item">
+             <a class="nav-link" href="{{ route('users.create') }}">📜 Profil</a>
+         </li>
+     </ul>
  </div>
