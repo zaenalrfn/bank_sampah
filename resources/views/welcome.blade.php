@@ -2,8 +2,12 @@
     $role = Auth::user()->role;
 @endphp
 <x-layout>
-    <h1>Selamat Datang di Dashboard</h1>
-    <p>Pilih menu di sebelah kiri untuk melanjutkan.</p>
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    <h1>Overview</h1>
     <div class="row mt-4">
         @if ($role === 'admin')
             <!-- Example Cards -->

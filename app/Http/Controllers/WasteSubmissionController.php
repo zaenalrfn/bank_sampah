@@ -62,4 +62,12 @@ class WasteSubmissionController extends Controller
 
         return redirect()->route('waste-submission.index')->with('success', 'Status waste submission updated successfully.');
     }
+    public function riwayat()
+    {
+        // Ambil setoran sampah yang sudah dilakukan oleh pengguna yang sedang login
+        $wasteSubmissions = WasteSubmission::where('user_id', Auth::id())->get();
+
+        // Kirim data setoran ke view
+        return view('users.riwayat_setoran', compact('wasteSubmissions'));
+    }
 }

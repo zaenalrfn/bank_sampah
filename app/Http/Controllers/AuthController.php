@@ -67,7 +67,7 @@ class AuthController extends Controller
 
         // Coba login user
         if (Auth::attempt($request->only('email', 'password'))) {
-            return redirect()->route('home')->with('success', 'Login berhasil.');
+            return redirect()->route('home')->with('success', 'Login berhasil, Selamat Datang ' . Auth::user()->name);
         }
 
         return back()->withErrors(['email' => 'Email atau password salah.']);

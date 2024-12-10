@@ -22,10 +22,10 @@
         @endif
         @if ($role === 'user')
             <li class="nav-item">
-                <a class="nav-link" href="#">📜 Riwayat Setoran</a>
+                <a class="nav-link" href="{{ route('waste-submission.setor') }}">📤 Setor</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('waste-submission.setor') }}">📤 Setor</a>
+                <a class="nav-link" href="{{ route('waste-submission.riwayat') }}">📜 Riwayat Setoran</a>
             </li>
         @endif
         <li class="nav-item">

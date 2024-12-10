@@ -1,5 +1,10 @@
 <x-layout>
     <h1>Article Management</h1>
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <!-- Tombol Create -->
     <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#createModal">Add New Article</button>
 
