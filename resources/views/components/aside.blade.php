@@ -9,13 +9,13 @@
              <a class="nav-link" href="/article">✍️ Artikel</a>
          </li>
          <li class="nav-item">
-             <a class="nav-link" href="#">♻️ Setoran Sampah</a>
+             <a class="nav-link" href="{{ route('waste-submission.index') }}">♻️ Setoran Sampah</a>
          </li>
          <li class="nav-item">
              <a class="nav-link" href="#">👤 Kelola Pengguna</a>
          </li>
          <li class="nav-item">
-             <a class="nav-link" href="#">📤 Setor</a>
+             <a class="nav-link" href="{{ route('waste-submission.setor') }}">📤 Setor</a>
          </li>
          <li class="nav-item">
              <a class="nav-link" href="#">📜 Riwayat Setoran</a>

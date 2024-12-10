@@ -2,24 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\WasteSubmission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class WasteSubmissionController extends Controller
 {
-    /**
-     * Tampilkan form setor sampah.
-     */
-    public function create()
+    // Menampilkan daftar waste submissions
+    public function index()
     {
-        return view('waste_submission.create');
+        $wasteSubmissions = WasteSubmission::paginate(10);
+        return view('admin.setoran_sampah', compact('wasteSubmissions'));
     }
 
-    /**
-     * Simpan data setoran sampah.
-     */
+    // Menampilkan form untuk membuat setoran sampah
+    public function create()
+    {
+        return view('users.setor');
+    }
+
+    // Menyimpan setoran sampah baru
     public function store(Request $request)
     {
         $request->validate([
@@ -36,6 +38,28 @@ class WasteSubmissionController extends Controller
             'status' => 'pending', // Default status adalah pending
         ]);
 
-        return redirect()->route('waste_submission.index')->with('success', 'Setoran berhasil dibuat dan sedang diproses.');
+        return redirect()->route('waste-submission.setor')->with('success', 'Setoran berhasil dibuat dan sedang diproses.');
+    }
+
+    // Menghapus setoran sampah
+    public function destroy(WasteSubmission $wasteSubmission)
+    {
+        $wasteSubmission->delete();
+
+        return redirect()->route('waste-submission.index')->with('success', 'Waste submission deleted successfully.');
+    }
+
+    // Mengupdate status setoran sampah (complete/pending)
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|in:pending,completed',
+        ]);
+
+        $submission = WasteSubmission::findOrFail($id);
+        $submission->status = $request->status;
+        $submission->save();
+
+        return redirect()->route('waste-submission.index')->with('success', 'Status waste submission updated successfully.');
     }
 }

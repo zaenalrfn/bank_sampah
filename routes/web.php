@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\WasteSubmissionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +30,12 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // });
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::resource('article', ArticlesController::class);
+Route::resource('waste-submission', WasteSubmissionController::class)->names([
+    'index' => 'waste-submission.index',
+    'create' => 'waste-submission.setor',
+    'store' => 'waste-submission.store',
+    'show' => 'waste-submission.show',
+    'edit' => 'waste-submission.edit',
+    'update' => 'waste-submission.update',
+    'destroy' => 'waste-submission.destroy',
+]);
