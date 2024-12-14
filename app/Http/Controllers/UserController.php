@@ -22,6 +22,27 @@ class UserController extends Controller
         $user = Auth::user();
         return view('edit_profil', compact('user'));
     }
+    // Menyimpan pengguna baru dengan role admin
+    public function store(Request $request)
+    {
+        // Validasi data input
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        // Membuat pengguna baru dengan role admin
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => 'admin', // Asumsi ada kolom 'role' di tabel users
+        ]);
+
+        // Redirect kembali dengan pesan sukses
+        return redirect()->route('users.create')->with('admin_tambah', 'Admin user created successfully.');
+    }
 
     // Menyimpan perubahan data pengguna
     public function update(Request $request, User $user)
@@ -40,7 +61,7 @@ class UserController extends Controller
     // Menampilkan modal ganti password
     public function editPassword(User $user)
     {
-        return view('admin.users.edit-password', compact('user'));
+        return view('edit_profil', compact('user'));
     }
 
     // Mengubah password pengguna
@@ -53,6 +74,6 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        return redirect()->route('users.index')->with('success', 'Password updated successfully.');
+        return redirect()->route('users.create')->with('success', 'Password updated successfully.');
     }
 }

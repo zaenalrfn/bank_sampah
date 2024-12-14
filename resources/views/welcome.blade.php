@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Total Artikel</h5>
-                        <p class="card-text">10 Artikel</p>
+                        <p class="card-text">{{ $totalArticles }} Artikel</p>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Setoran Sampah</h5>
-                        <p class="card-text">500 Kg</p>
+                        <p class="card-text">{{ $totalSetoranSampah }} Kg</p>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Pengguna Terdaftar</h5>
-                        <p class="card-text">50 Orang</p>
+                        <p class="card-text">{{ $totalPengguna }} Orang</p>
                     </div>
                 </div>
             </div>

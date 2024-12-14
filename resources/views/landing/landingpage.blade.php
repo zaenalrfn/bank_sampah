@@ -8,10 +8,6 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -37,16 +33,15 @@
     <header id="header" class="header d-flex align-items-center sticky-top">
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="/" class="logo d-flex align-items-center">
                 <h1 class="sitename text-success">AiTrash.</h1>
             </a>
 
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <li><a href="index.html" class="active">Rumah</a></li>
-                    <li><a href="about.html">Tentang kami</a></li>
-                    <li><a href="blog.html">Artikel</a></li>
-                    <li><a href="contact.html">Kontak</a></li>
+                    <li><a href="#about">Tentang kami</a></li>
+                    <li><a href="#blog-posts">Artikel</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -149,7 +144,7 @@
                                     depan yang lebih hijau.
                                 </p>
                                 <p>
-                                    <a href="#" class="btn-get-started">Mulai sekarang!</a>
+                                    <a href="/login" target="_blank" class="btn-get-started">Mulai sekarang!</a>
                                 </p>
                             </div>
                         </div>
@@ -281,7 +276,7 @@
                                         <span class="date">{{ $artikel->created_at->format('d F Y') }}</span>
                                     </div>
                                     <h3><a
-                                            href="{{ route('article.show', $artikel->id) }}">{{ substr($artikel->title, 0, 25) }}...</a>
+                                            href="{{ route('landing.show', $artikel->id) }}">{{ substr($artikel->title, 0, 25) }}...</a>
                                     </h3>
                                     <p>
                                         {{ substr($artikel->content, 0, 100) }}...
@@ -298,7 +293,7 @@
                     @empty
                         <h1>Yaah belum ada artikel</h1>
                     @endforelse
-                    <a href="{{ route('landing') }}" class="btn-get-started text-center">Lihat semua blog</a>
+                    <a href="{{ route('landing') }}" class="btn-get-started text-center mt-5">Lihat semua blog</a>
                 </div>
             </div>
         </section><!-- /Blog Posts Section -->
@@ -473,7 +468,7 @@
                             sampah menjadi peluang!
                         </p>
                         <p class="mb-0">
-                            <a href="#" class="btn-learn-more">Learn more</a>
+                            <a href="/login" class="btn-learn-more">Mulai sekarang</a>
                         </p>
                     </div>
                 </div>
@@ -481,55 +476,11 @@
                     <div class="widget">
                         <h3 class="widget-heading">Arah</h3>
                         <ul class="list-unstyled float-start me-5">
-                            <li><a href="#">Rumah</a></li>
-                            <li><a href="#">Tentang kami</a></li>
-                            <li><a href="#">Artikel</a></li>
-                            <li><a href="#">Kontak</a></li>
+                            <li><a href="/">Rumah</a></li>
+                            <li><a href="#about">Tentang kami</a></li>
+                            <li><a href="#blog-posts">Artikel</a></li>
                         </ul>
 
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 pl-lg-5">
-                    <div class="widget">
-                        <h3 class="widget-heading">Connect</h3>
-                        <ul class="list-unstyled social-icons light mb-3">
-                            <li>
-                                <a href="#"><span class="bi bi-facebook"></span></a>
-                            </li>
-                            <li>
-                                <a href="#"><span class="bi bi-twitter-x"></span></a>
-                            </li>
-                            <li>
-                                <a href="#"><span class="bi bi-linkedin"></span></a>
-                            </li>
-                            <li>
-                                <a href="#"><span class="bi bi-google"></span></a>
-                            </li>
-                            <li>
-                                <a href="#"><span class="bi bi-google-play"></span></a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="widget">
-                        <div class="footer-subscribe">
-                            <h3 class="widget-heading">Subscribe</h3>
-                            <form action="forms/newsletter.php" method="post" class="php-email-form">
-                                <div class="mb-2">
-                                    <input type="text" class="form-control" name="email"
-                                        placeholder="Enter your email">
-
-                                    <button type="submit" class="btn btn-link">
-                                        <span class="bi bi-arrow-right"></span>
-                                    </button>
-                                </div>
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">
-                                    Your subscription request has been sent. Thank you!
-                                </div>
-                            </form>
-                        </div>
                     </div>
                 </div>
             </div>

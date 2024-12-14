@@ -20,6 +20,7 @@ use App\Http\Controllers\LandingController;
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::get('/blog', [LandingController::class, 'allBlog'])->name('landing');
+Route::get('/blog/{id}', [LandingController::class, 'show'])->name('landing.show');
 
 // Route untuk form register dan login
 Route::middleware('guest')->group(function () {
@@ -36,8 +37,9 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware('role:user|admin')->group(function () {
         Route::get('/home', [HomeController::class, 'home'])->name('home');
         Route::get('users/create', [UserController::class, 'create'])->name('users.create');
-        // Mengupdate data pengguna
+        Route::post('users/store', [UserController::class, 'store'])->name('users.store');
         Route::put('users/{user}', [UserController::class, 'update'])->name('users.update');
+        Route::put('users/{user}/update-password', [UserController::class, 'updatePassword'])->name('users.update-password');
     });
 
     Route::middleware('role:admin')->group(function () {
@@ -46,8 +48,6 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('waste-submission/{waste_submission}', [WasteSubmissionController::class, 'destroy'])->name('waste-submission.destroy');
         Route::resource('article', ArticlesController::class);
         Route::get('users', [UserController::class, 'index'])->name('users.index');
-        Route::get('users/{user}/edit-password', [UserController::class, 'editPassword'])->name('users.edit-password');
-        Route::put('users/{user}/update-password', [UserController::class, 'updatePassword'])->name('users.update-password');
         Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
     });
     Route::middleware('role:user')->group(function () {

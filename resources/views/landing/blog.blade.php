@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Blog - Active Bootstrap Template</title>
+    <title>Artikel - AiTrash</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -43,11 +43,11 @@
         <!-- Page Title -->
         <div class="page-title light-background">
             <div class="container">
-                <h1>Blog</h1>
+                <h1>Artikel</h1>
                 <nav class="breadcrumbs">
                     <ol>
-                        <li><a href="index.html">Home</a></li>
-                        <li class="current">Blog</li>
+                        <li><a href="/">Rumah</a></li>
+                        <li class="current">Artikel</li>
                     </ol>
                 </nav>
             </div>
@@ -58,73 +58,28 @@
         <section id="blog-posts-2" class="blog-posts-2 section">
             <div class="container">
                 <div class="row gy-5">
-                    <div class="col-lg-4 col-md-6">
-                        <article>
-                            <div class="post-img">
-                                <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid" />
-                            </div>
+                    @forelse ($artikel as $itemArtikel)
+                        <div class="col-lg-4 col-md-6">
+                            <article>
+                                <div class="meta-top">
+                                    <ul>
+                                        <li class="d-flex align-items-center">{{ $itemArtikel->category }}</li>
+                                        <li class="d-flex align-items-center">
+                                            <i class="bi bi-dot"></i> {{ $itemArtikel->created_at->format('d F Y') }}
+                                        </li>
+                                    </ul>
+                                </div>
 
-                            <div class="meta-top">
-                                <ul>
-                                    <li class="d-flex align-items-center"><a href="blog-details.html">Sorts</a></li>
-                                    <li class="d-flex align-items-center">
-                                        <i class="bi bi-dot"></i> <a href="blog-details.html"><time
-                                                datetime="2022-01-01">Jan 1, 2022</time></a>
-                                    </li>
-                                </ul>
-                            </div>
+                                <h2 class="title">
+                                    <a
+                                        href="{{ route('landing.show', $itemArtikel->id) }}">{{ $itemArtikel->title }}</a>
+                                </h2>
+                            </article>
 
-                            <h2 class="title">
-                                <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos</a>
-                            </h2>
-                        </article>
-                    </div>
-                    <!-- End post list item -->
-
-                    <div class="col-lg-4 col-md-6">
-                        <article>
-                            <div class="post-img">
-                                <img src="assets/img/blog/blog-2.jpg" alt="" class="img-fluid" />
-                            </div>
-
-                            <div class="meta-top">
-                                <ul>
-                                    <li class="d-flex align-items-center"><a href="blog-details.html">Fashion</a></li>
-                                    <li class="d-flex align-items-center">
-                                        <i class="bi bi-dot"></i> <a href="blog-details.html"><time
-                                                datetime="2022-01-01">Jan 1, 2022</time></a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <h2 class="title">
-                                <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
-                            </h2>
-                        </article>
-                    </div>
-                    <!-- End post list item -->
-
-                    <div class="col-lg-4 col-md-6">
-                        <article>
-                            <div class="post-img">
-                                <img src="assets/img/blog/blog-3.jpg" alt="" class="img-fluid" />
-                            </div>
-
-                            <div class="meta-top">
-                                <ul>
-                                    <li class="d-flex align-items-center"><a href="blog-details.html">Laws</a></li>
-                                    <li class="d-flex align-items-center">
-                                        <i class="bi bi-dot"></i> <a href="blog-details.html"><time
-                                                datetime="2022-01-01">Jul 5, 2022</time></a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <h2 class="title">
-                                <a href="blog-details.html">Possimus soluta ut id suscipit soluta</a>
-                            </h2>
-                        </article>
-                    </div>
+                        </div>
+                    @empty
+                        <h1>Yaah belum ada artikel</h1>
+                    @endforelse
                     <!-- End post list item -->
                 </div>
                 <!-- End blog posts list -->
@@ -134,23 +89,9 @@
 
         <!-- Blog Pagination Section -->
         <section id="blog-pagination" class="blog-pagination section">
-            <div class="container">
-                <div class="d-flex justify-content-center">
-                    <ul>
-                        <li>
-                            <a href="#"><i class="bi bi-chevron-left"></i></a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#" class="active">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li>...</li>
-                        <li><a href="#">10</a></li>
-                        <li>
-                            <a href="#"><i class="bi bi-chevron-right"></i></a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="container bg-[#34bf49]">
+                <!-- Pagination Links -->
+                {{ $artikel->links('pagination::bootstrap-5') }}
             </div>
         </section>
         <!-- /Blog Pagination Section -->
@@ -161,100 +102,36 @@
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
                     <div class="widget">
-                        <h3 class="widget-heading">About Us</h3>
+                        <h3 class="widget-heading">Tentang kami</h3>
                         <p class="mb-4">
-                            There live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
-                            Semantics, a large language ocean.
+                            Website ini bertujuan untuk meningkatkan kesadaran dan memberikan solusi dalam pengelolaan
+                            sampah yang berkelanjutan. Dengan informasi, tips, dan program daur ulang, kami membantu
+                            masyarakat menciptakan lingkungan yang lebih bersih dan hijau. Mari bersama-sama mengubah
+                            sampah menjadi peluang!
                         </p>
                         <p class="mb-0">
-                            <a href="#" class="btn-learn-more">Learn more</a>
+                            <a href="/login" class="btn-learn-more">Mulai sekarang</a>
                         </p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 ps-lg-5 mb-3 mb-md-0">
                     <div class="widget">
-                        <h3 class="widget-heading">Navigation</h3>
+                        <h3 class="widget-heading">Arah</h3>
                         <ul class="list-unstyled float-start me-5">
-                            <li><a href="#">Overview</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Find Buyers</a></li>
+                            <li><a href="/">Rumah</a></li>
+                            <li><a href="/">Tentang kami</a></li>
+                            <li><a href="{{ route('landing') }}">Artikel</a></li>
                         </ul>
-                        <ul class="list-unstyled float-start">
-                            <li><a href="#">Overview</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Services</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 pl-lg-5">
-                    <div class="widget">
-                        <h3 class="widget-heading">Recent Posts</h3>
-                        <ul class="list-unstyled footer-blog-entry">
-                            <li>
-                                <span class="d-block date">May 3, 2020</span>
-                                <a href="#">There live the Blind Texts</a>
-                            </li>
-                            <li>
-                                <span class="d-block date">May 3, 2020</span>
-                                <a href="#">Separated they live in Bookmarksgrove right</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 pl-lg-5">
-                    <div class="widget">
-                        <h3 class="widget-heading">Connect</h3>
-                        <ul class="list-unstyled social-icons light mb-3">
-                            <li>
-                                <a href="#"><span class="bi bi-facebook"></span></a>
-                            </li>
-                            <li>
-                                <a href="#"><span class="bi bi-twitter-x"></span></a>
-                            </li>
-                            <li>
-                                <a href="#"><span class="bi bi-linkedin"></span></a>
-                            </li>
-                            <li>
-                                <a href="#"><span class="bi bi-google"></span></a>
-                            </li>
-                            <li>
-                                <a href="#"><span class="bi bi-google-play"></span></a>
-                            </li>
-                        </ul>
-                    </div>
 
-                    <div class="widget">
-                        <div class="footer-subscribe">
-                            <h3 class="widget-heading">Subscribe</h3>
-                            <form action="forms/newsletter.php" method="post" class="php-email-form">
-                                <div class="mb-2">
-                                    <input type="text" class="form-control" name="email"
-                                        placeholder="Enter your email" />
-
-                                    <button type="submit" class="btn btn-link">
-                                        <span class="bi bi-arrow-right"></span>
-                                    </button>
-                                </div>
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-                            </form>
-                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="copyright d-flex flex-column flex-md-row align-items-center justify-content-md-between">
-                <p>© <span>Copyright</span> <strong class="px-1 sitename">Active.</strong> <span>All Rights
-                        Reserved</span></p>
-                <div class="credits">
-                    <!-- All the links in the footer should remain intact. -->
-                    <!-- You can delete the links only if you've purchased the pro version. -->
-                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                    <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                </div>
+                <p>© <span id="currentYear"></span> <span>Copyright</span> <strong
+                        class="px-1 sitename">Aitrash</strong>. <span>All Rights Reserved</span></p>
             </div>
+
         </div>
     </footer>
 

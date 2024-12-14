@@ -1,22 +1,22 @@
 <x-layout>
-    <h1>Article Management</h1>
+    <h1>Artikel</h1>
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
     <!-- Tombol Create -->
-    <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#createModal">Add New Article</button>
+    <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#createModal">Tambah artikel</button>
 
     <!-- Table -->
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>#</th>
-                <th>Title</th>
-                <th>Category</th>
-                <th>Author</th>
-                <th>Actions</th>
+                <th>Judul</th>
+                <th>Kategori</th>
+                <th>Penulis</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
