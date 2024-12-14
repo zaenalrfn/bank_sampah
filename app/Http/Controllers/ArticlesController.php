@@ -16,7 +16,14 @@ class ArticlesController extends Controller
         $articles = Article::paginate(10);
         return view('admin.artikel', compact('articles'));
     }
+    public function show($id)
+    {
+        // Cari artikel berdasarkan ID
+        $article = Article::findOrFail($id);
 
+        // Kirim data ke view
+        return view('landing.detail_artikel', ['article' => $article]);
+    }
     /**
      * Store a newly created article in storage.
      */

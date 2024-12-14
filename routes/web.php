@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\WasteSubmissionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LandingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,9 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/blog', [LandingController::class, 'allBlog'])->name('landing');
 
 // Route untuk form register dan login
 Route::middleware('guest')->group(function () {
