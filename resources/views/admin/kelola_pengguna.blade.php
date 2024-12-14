@@ -7,6 +7,11 @@
                 {{ session('success') }}
             </div>
         @endif
+        @if (session('error'))
+            <div class="alert alert-warning">
+                {{ session('error') }}
+            </div>
+        @endif
 
         <table class="table table-bordered">
             <thead>

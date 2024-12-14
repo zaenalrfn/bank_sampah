@@ -270,7 +270,7 @@
                     @forelse ($latestArticles as $artikel)
                         <div class="col-md-6 col-lg-4">
                             <div class="post-entry" data-aos="fade-up" data-aos-delay="100">
-                                <div class="post-content">
+                                <div class="post-content ">
                                     <div class="meta">
                                         <a href="#" class="cat">{{ $artikel->category }}</a>
                                         <span class="date">{{ $artikel->created_at->format('d F Y') }}</span>
@@ -278,7 +278,7 @@
                                     <h3><a
                                             href="{{ route('landing.show', $artikel->id) }}">{{ substr($artikel->title, 0, 25) }}...</a>
                                     </h3>
-                                    <p>
+                                    <p class="overflow-hidden">
                                         {{ substr($artikel->content, 0, 100) }}...
                                     </p>
 
