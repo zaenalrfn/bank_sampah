@@ -15,6 +15,7 @@
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Role</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +28,14 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->role }}</td>
+                        <td>
+                            <form action="{{ route('users.destroy', $user->id) }}" method="POST"
+                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

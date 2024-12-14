@@ -54,5 +54,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('waste-submission/create', [WasteSubmissionController::class, 'create'])->name('waste-submission.setor');
         Route::get('riwayat-setoran', [WasteSubmissionController::class, 'riwayat'])->name('waste-submission.riwayat');
         Route::post('waste-submission', [WasteSubmissionController::class, 'store'])->name('waste-submission.store');
+        Route::post('waste-submission', [WasteSubmissionController::class, 'show'])->name('waste-submission.show');
     });
 });

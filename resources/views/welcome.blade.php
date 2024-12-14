@@ -40,8 +40,12 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Riwayat setoran kamu</h5>
-                        <p class="card-text">50</p>
+                        <h5 class="card-title">Total riwayat setoran kamu</h5>
+                        @if ($totalSetoranSampahUser)
+                            <p class="card-text">{{ $totalSetoranSampahUser }}</p>
+                        @else
+                            <p class="card-text">Kamu belum setor sampah</p>
+                        @endif
                     </div>
                 </div>
             </div>

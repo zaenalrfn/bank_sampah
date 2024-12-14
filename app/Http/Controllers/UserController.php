@@ -58,12 +58,6 @@ class UserController extends Controller
         return redirect()->route('users.create')->with('success', 'User updated successfully.');
     }
 
-    // Menampilkan modal ganti password
-    public function editPassword(User $user)
-    {
-        return view('edit_profil', compact('user'));
-    }
-
     // Mengubah password pengguna
     public function updatePassword(Request $request, User $user)
     {
@@ -75,5 +69,19 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->route('users.create')->with('success', 'Password updated successfully.');
+    }
+
+    // Menghapus pengguna
+    public function destroy(User $user)
+    {
+        // Mencegah pengguna menghapus dirinya sendiri
+        if (Auth::id() === $user->id) {
+            return redirect()->route('users.index')->with('error', 'Anda tidak dapat menghapus akun Anda sendiri.');
+        }
+
+        // Menghapus pengguna
+        $user->delete();
+
+        return redirect()->route('users.index')->with('success', 'Pengguna berhasil dihapus.');
     }
 }

@@ -22,7 +22,7 @@
                 @csrf
 
                 <div class="mb-3">
-                    <label for="waste_type" class="form-label">Jenis Sampah</label>
+                    <label for="waste_type" class="form-label">Jenis Sampah (organik/anorganik)</label>
                     <input type="text" name="waste_type" id="waste_type" class="form-control"
                         placeholder="Masukkan jenis sampah" required>
                 </div>
