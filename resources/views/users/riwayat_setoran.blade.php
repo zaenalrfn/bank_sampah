@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="['title' => 'Riwayat Setoran']">
     <div class="container">
         <h2>Riwayat Setoran Sampah</h2>
 

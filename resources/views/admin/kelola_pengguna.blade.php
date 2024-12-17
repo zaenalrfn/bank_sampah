@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="['title' => 'Pengguna']">
     <div class="container mt-5">
         <h1>Pengguna</h1>
 

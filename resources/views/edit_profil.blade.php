@@ -1,7 +1,7 @@
 @php
     $role = Auth::user()->role;
 @endphp
-<x-layout>
+<x-layout :title="['title' => 'Profil']">
     <div class="container mt-5">
         <h3 class="mb-2">{{ $user->name }}</h3>
         <p>{{ $user->role }}</p>

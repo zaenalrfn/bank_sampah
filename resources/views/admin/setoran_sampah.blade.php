@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="['title' => 'Setoran Sampah']">
     <h1>Daftar Setoran Sampah</h1>
 
     @if (session('success'))

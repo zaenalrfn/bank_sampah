@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="['title' => 'Setor']">
     <!DOCTYPE html>
     <html lang="en">
 

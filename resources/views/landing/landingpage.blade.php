@@ -17,15 +17,15 @@
 
     <!-- Vendor CSS Files -->
     <!-- Vendor CSS Files -->
-    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assetsTemplate/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assetsTemplate/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('assetsTemplate/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ asset('assetsTemplate/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assetsTemplate/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
 
 
     <!-- Main CSS File -->
-    <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assetsTemplate/css/main.css') }}" rel="stylesheet">
 </head>
 
 <body class="index-page">
@@ -85,13 +85,13 @@
               </script>
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <img src="assets/img/sampah2.jpg" alt="Image" class="img-fluid">
+                                    <img src="assetsTemplate/img/sampah2.jpg" alt="Image" class="img-fluid">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="assets/img/sampah4.jpg" alt="Image" class="img-fluid">
+                                    <img src="assetsTemplate/img/sampah4.jpg" alt="Image" class="img-fluid">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="assets/img/sampah6.jpg" alt="Image" class="img-fluid">
+                                    <img src="assetsTemplate/img/sampah6.jpg" alt="Image" class="img-fluid">
                                 </div>
                             </div>
                             <div class="swiper-pagination"></div>
@@ -122,7 +122,7 @@
                         <div class="col-sm-12 col-md-5 col-lg-4 col-xl-4 order-lg-2 offset-xl-1 mb-4">
                             <div class="img-wrap text-center text-md-left" data-aos="fade-up" data-aos-delay="100">
                                 <div class="img">
-                                    <img src="assets/img/sampah7.jpg" alt="circle image" class="img-fluid">
+                                    <img src="assetsTemplate/img/sampah7.jpg" alt="circle image" class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -211,7 +211,7 @@
 
                     <div class="col-lg-5">
                         <div class="images-overlap">
-                            <img src="assets/img/sampah5.jpg" alt="student" class="img-fluid img-1"
+                            <img src="assetsTemplate/img/sampah5.jpg" alt="student" class="img-fluid img-1"
                                 data-aos="fade-up">
                         </div>
                     </div>
@@ -293,7 +293,7 @@
                     @empty
                         <h1>Yaah belum ada artikel</h1>
                     @endforelse
-                    <a href="{{ route('landing') }}" class="btn-get-started text-center mt-5">Lihat semua blog</a>
+                    <a href="{{ route('landing') }}" class="btn-get-started text-center mt-5">Lihat semua artikel</a>
                 </div>
             </div>
         </section><!-- /Blog Posts Section -->
@@ -403,7 +403,7 @@
               </script>
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <img src="assets/img/pabrik.jpeg" alt="Image" class="img-fluid">
+                                    <img src="assetsTemplate/img/pabrik.jpeg" alt="Image" class="img-fluid">
                                     <div class="p-4">
                                         <h3 class="text-black h5 mb-3">Pengelolaan Sampah Modern</h3>
                                         <div class="row">
@@ -433,13 +433,13 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="assets/img/daurulang.jpeg" alt="Image" class="img-fluid">
+                                    <img src="assetsTemplate/img/daurulang.jpeg" alt="Image" class="img-fluid">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="assets/img/sampah8.jpg" alt="Image" class="img-fluid">
+                                    <img src="assetsTemplate/img/sampah8.jpg" alt="Image" class="img-fluid">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="assets/img/hijau.jpeg" alt="Image" class="img-fluid">
+                                    <img src="assetsTemplate/img/hijau.jpeg" alt="Image" class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -501,17 +501,17 @@
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
-    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
-    <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
-    <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
-    <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assetsTemplate/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assetsTemplate/vendor/php-email-form/validate.js') }}"></script>
+    <script src="{{ asset('assetsTemplate/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('assetsTemplate/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('assetsTemplate/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+    <script src="{{ asset('assetsTemplate/vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ asset('assetsTemplate/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assetsTemplate/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
 
     <!-- Main JS File -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assetsTemplate/js/main.js') }}"></script>
     <script>
         // Menambahkan tahun secara otomatis ke elemen dengan id "currentYear"
         document.addEventListener("DOMContentLoaded", function() {

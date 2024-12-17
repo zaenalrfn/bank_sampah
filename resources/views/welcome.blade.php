@@ -1,7 +1,7 @@
 @php
     $role = Auth::user()->role;
 @endphp
-<x-layout>
+<x-layout :title="['title' => 'Overview']">
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}

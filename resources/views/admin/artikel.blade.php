@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="['title' => 'Artikel']">
     <h1>Artikel</h1>
     @if (session('success'))
         <div class="alert alert-success">
