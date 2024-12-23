@@ -68,7 +68,9 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="content" class="form-label">Content</label>
-                                        <textarea name="content" class="form-control" id="content" rows="4" required>{!! html_entity_decode($article->content) !!}</textarea>
+                                        <input id="x{{ $article->id }}" type="hidden" name="content"
+                                            value=" {{ $article->content }}">
+                                        <trix-editor input="x{{ $article->id }}"></trix-editor>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -146,7 +148,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="content" class="form-label">Content</label>
-                            <textarea name="content" class="form-control" id="content" rows="4" placeholder="Enter article content"></textarea>
+                            <input id="xcontent" type="hidden" name="content">
+                            <trix-editor input="xcontent"></trix-editor>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -158,16 +161,43 @@
         </div>
     </div>
 
-    <script>
-        ClassicEditor.create(document.querySelector('#content'))
-            .catch(error => {
-                console.error(error);
-            });
+    {{-- <script>
+        let editorInstance;
+
+        $('#createModal').on('shown.bs.modal', function() {
+            if (!editorInstance) {
+                ClassicEditor
+                    .create(document.querySelector('#content'))
+                    .then(editor => {
+                        editorInstance = editor;
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            } else {
+                editorInstance.setData(''); // Reset content if CKEditor already initialized
+            }
+        });
+
+        $('#createModal').on('hidden.bs.modal', function() {
+            if (editorInstance) {
+                editorInstance.destroy()
+                    .then(() => {
+                        editorInstance = null;
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            }
+        });
+
+
+
         document.querySelector('form').addEventListener('submit', function() {
             const textarea = document.querySelector('#content');
             if (textarea.style.display === 'none') {
                 textarea.value = 'Default content';
             }
         });
-    </script>
+    </script> --}}
 </x-layout>
