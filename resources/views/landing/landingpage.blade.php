@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>AiTrash - Kelola Sampahmu</title>
+    <title>iTrash - Kelola Sampahmu</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
@@ -34,7 +34,7 @@
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
             <a href="/" class="logo d-flex align-items-center">
-                <h1 class="sitename text-success">AiTrash.</h1>
+                <h1 class="sitename text-success">iTrash.</h1>
             </a>
 
             <nav id="navmenu" class="navmenu">
@@ -278,10 +278,6 @@
                                     <h3><a
                                             href="{{ route('landing.show', $artikel->id) }}">{{ substr($artikel->title, 0, 25) }}...</a>
                                     </h3>
-                                    <p class="overflow-hidden">
-                                        {{ substr($artikel->content, 0, 100) }}...
-                                    </p>
-
                                     <div class="d-flex author align-items-center">
                                         <div class="author-name">
                                             <strong class="d-block">{{ $artikel->author }}</strong>
@@ -487,7 +483,7 @@
 
             <div class="copyright d-flex flex-column flex-md-row align-items-center justify-content-md-between">
                 <p>© <span id="currentYear"></span> <span>Copyright</span> <strong
-                        class="px-1 sitename">Aitrash</strong>. <span>All Rights Reserved</span></p>
+                        class="px-1 sitename">iTrash</strong>. <span>All Rights Reserved</span></p>
             </div>
 
         </div>

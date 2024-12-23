@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Artikel - AiTrash</title>
+    <title>Artikel - iTrash</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -125,7 +125,7 @@
 
             <div class="copyright d-flex flex-column flex-md-row align-items-center justify-content-md-between">
                 <p>© <span id="currentYear"></span> <span>Copyright</span> <strong
-                        class="px-1 sitename">Aitrash</strong>. <span>All Rights Reserved</span></p>
+                        class="px-1 sitename">iTrash</strong>. <span>All Rights Reserved</span></p>
             </div>
 
         </div>

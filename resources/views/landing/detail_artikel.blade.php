@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>AiTrash - Detail artikel</title>
+    <title>iTrash - Detail artikel</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
@@ -69,7 +69,7 @@
 
                                 <div class="content">
                                     <p>
-                                        {{ $article->content }}
+                                        {!! html_entity_decode($article->content) !!}
                                     </p>
                                 </div><!-- End post content -->
 
@@ -145,7 +145,7 @@
 
             <div class="copyright d-flex flex-column flex-md-row align-items-center justify-content-md-between">
                 <p>© <span id="currentYear"></span> <span>Copyright</span> <strong
-                        class="px-1 sitename">Aitrash</strong>. <span>All Rights Reserved</span></p>
+                        class="px-1 sitename">iTrash</strong>. <span>All Rights Reserved</span></p>
             </div>
 
         </div>

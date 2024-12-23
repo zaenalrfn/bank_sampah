@@ -34,15 +34,15 @@
                     <td>
                         <!-- Tombol untuk buka modal -->
                         <button class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#statusModal{{ $submission->id }}">Update
-                            Status</button>
+                            data-bs-target="#statusModal{{ $submission->id }}"><i
+                                class="bi bi-check2-square"></i></button>
 
                         <!-- Tombol Hapus -->
                         <form action="{{ route('waste-submission.destroy', $submission->id) }}" method="POST"
                             style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                            <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
                         </form>
                     </td>
                 </tr>

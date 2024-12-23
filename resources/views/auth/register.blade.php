@@ -15,7 +15,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header text-center">
-                        <h3>Register</h3>
+                        <h3>Register | iTrash</h3>
                     </div>
                     <div class="card-body">
                         <!-- Tampilkan pesan sukses atau error -->

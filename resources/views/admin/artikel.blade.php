@@ -31,9 +31,9 @@
                     <td>{{ $article->author }}</td>
                     <td>
                         <button class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#updateModal{{ $article->id }}">Edit</button>
+                            data-bs-target="#updateModal{{ $article->id }}"><i class="bi bi-pencil-square"></i></button>
                         <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#deleteModal{{ $article->id }}">Delete</button>
+                            data-bs-target="#deleteModal{{ $article->id }}"><i class="bi bi-trash"></i></button>
                     </td>
                 </tr>
 
@@ -43,7 +43,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="updateModalLabel">Edit Article</h5>
+                                <h5 class="modal-title" id="updateModalLabel">Edit artikel</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -52,29 +52,29 @@
                                 @method('PUT')
                                 <div class="modal-body">
                                     <div class="mb-3">
-                                        <label for="title" class="form-label">Title</label>
+                                        <label for="title" class="form-label">Judul</label>
                                         <input type="text" name="title" class="form-control"
                                             value="{{ $article->title }}" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="content" class="form-label">Content</label>
-                                        <textarea name="content" class="form-control" rows="4" required>{{ $article->content }}</textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="category" class="form-label">Category</label>
+                                        <label for="category" class="form-label">Kategori</label>
                                         <input type="text" name="category" class="form-control"
                                             value="{{ $article->category }}" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="author" class="form-label">Author</label>
+                                        <label for="author" class="form-label">Penulis</label>
                                         <input type="text" name="author" class="form-control"
                                             value="{{ $article->author }}" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="content" class="form-label">Content</label>
+                                        <textarea name="content" class="form-control" id="content" rows="4" required>{!! html_entity_decode($article->content) !!}</textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        data-bs-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-primary">Update artikel</button>
                                 </div>
                             </form>
                         </div>
@@ -87,7 +87,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="deleteModalLabel">Delete Article</h5>
+                                <h5 class="modal-title" id="deleteModalLabel">Hapus artikel</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -95,13 +95,13 @@
                                 @csrf
                                 @method('DELETE')
                                 <div class="modal-body">
-                                    Are you sure you want to delete this article titled
+                                    Yakin ingin menghapus artikel :
                                     "<strong>{{ $article->title }}</strong>"?
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                        data-bs-dismiss="modal">Batal</button>
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
                                 </div>
                             </form>
                         </div>
@@ -123,39 +123,51 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="createModalLabel">Add New Article</h5>
+                    <h5 class="modal-title" id="createModalLabel">Tambah artikel</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="{{ route('article.store') }}" method="POST">
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="title" class="form-label">Title</label>
+                            <label for="title" class="form-label">Judul</label>
                             <input type="text" name="title" class="form-control"
                                 placeholder="Enter article title" required>
                         </div>
                         <div class="mb-3">
-                            <label for="content" class="form-label">Content</label>
-                            <textarea name="content" class="form-control" rows="4" placeholder="Enter article content" required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="category" class="form-label">Category</label>
+                            <label for="category" class="form-label">Kategori</label>
                             <input type="text" name="category" class="form-control" placeholder="Enter category"
                                 required>
                         </div>
                         <div class="mb-3">
-                            <label for="author" class="form-label">Author</label>
+                            <label for="author" class="form-label">Penulis</label>
                             <input type="text" name="author" class="form-control"
                                 placeholder="Enter author name" required>
                         </div>
+                        <div class="mb-3">
+                            <label for="content" class="form-label">Content</label>
+                            <textarea name="content" class="form-control" id="content" rows="4" placeholder="Enter article content"></textarea>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save Article</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Tambah artikel</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
+    <script>
+        ClassicEditor.create(document.querySelector('#content'))
+            .catch(error => {
+                console.error(error);
+            });
+        document.querySelector('form').addEventListener('submit', function() {
+            const textarea = document.querySelector('#content');
+            if (textarea.style.display === 'none') {
+                textarea.value = 'Default content';
+            }
+        });
+    </script>
 </x-layout>
